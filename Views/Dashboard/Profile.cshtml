@@ -1,0 +1,36 @@
+﻿@model BankProject.Models.Account
+
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<div class="container mt-4">
+    <h3>My Profile</h3>
+    <div class="card shadow mt-3">
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">Account Holder Name</dt>
+                <dd class="col-sm-9">@Model.AccountHolderName</dd>
+
+                <dt class="col-sm-3">Email</dt>
+                <dd class="col-sm-9">@Model.Email</dd>
+
+                <dt class="col-sm-3">Phone Number</dt>
+                <dd class="col-sm-9">@Model.PhoneNumber</dd>
+
+                <dt class="col-sm-3">Account Number</dt>
+                <dd class="col-sm-9">@Model.AccountNumber</dd>
+
+                <dt class="col-sm-3">Account Type</dt>
+                <dd class="col-sm-9">@Model.AccountType</dd>
+
+                <dt class="col-sm-3">Balance</dt>
+                <dd class="col-sm-9">$@Model.Balance.ToString("N2")</dd>
+
+                <dt class="col-sm-3">Member Since</dt>
+                <dd class="col-sm-9">@Model.CreatedDate.ToString("MMMM yyyy")</dd>
+            </dl>
+            <a asp-action="Index" class="btn btn-outline-primary">Back to Dashboard</a>
+        </div>
+    </div>
+</div>

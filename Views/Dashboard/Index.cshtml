@@ -1,0 +1,123 @@
+﻿@model BankProject.Models.Account
+@{
+    ViewData["Title"] = "Dashboard";
+}
+<div class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="h3">Dashboard</h1>
+        <div class="text-muted">
+            Account: @Model.AccountNumber
+        </div>
+    </div>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <!-- Balance Card -->
+    <div class="row mb-4">
+        <div class="col-md-6 col-lg-4 mb-3">
+            <div class="card balance-card">
+                <div class="card-body">
+                    <h5 class="card-title">Current Balance</h5>
+                    <h2 class="card-text">$@Model.Balance.ToString("N2")</h2>
+                    <p class="card-text">
+                        <small>@Model.AccountType Account</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Account Holder</h5>
+                    <p class="card-text">@Model.AccountHolderName</p>
+                    <p class="card-text">
+                        <small class="text-muted">Member since @Model.CreatedDate.ToString("MMMM yyyy")</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Quick Actions</h5>
+                    <div class="d-grid gap-2">
+                        <a asp-controller="Transaction" asp-action="Deposit" class="btn btn-success">
+                            <i class="bi bi-plus-circle"></i> Deposit
+                        </a>
+                        <a asp-controller="Transaction" asp-action="Withdraw" class="btn btn-warning">
+                            <i class="bi bi-dash-circle"></i> Withdraw
+                        </a>
+                        <a asp-controller="Transaction" asp-action="Transfer" class="btn btn-primary">
+                            <i class="bi bi-send"></i> Transfer Funds
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Transactions -->
+    <div class="card">
+        <div class="card-header">
+            <h5 class="mb-0">Recent Transactions</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover transaction-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Type</th>
+                            <th>Amount</th>
+                            <th>Balance After</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Transactions != null && Model.Transactions.Any())
+                        {
+                            foreach (var transaction in Model.Transactions)
+                            {
+                                <tr>
+                                    <td>@transaction.TransactionDate.ToString("MMM dd, yyyy HH:mm")</td>
+                                    <td>@transaction.Description</td>
+                                    <td>
+                                        <span class="badge bg-@(transaction.TransactionType == TransactionType.Deposit ? "success" :
+                                                                                        transaction.TransactionType == TransactionType.Withdrawal ? "warning" : "primary")">
+                                            @transaction.TransactionType
+                                        </span>
+                                    </td>
+                                    <td class="@(transaction.TransactionType == TransactionType.Deposit ? "text-success" : "text-danger")">
+                                        @(transaction.TransactionType == TransactionType.Deposit ? "+" : "-")$@transaction.Amount.ToString("N2")
+                                    </td>
+                                    <td>$@transaction.BalanceAfter.ToString("N2")</td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="5" class="text-center text-muted">
+                                    No transactions yet.
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="text-center mt-3">
+                <a asp-controller="Transaction" asp-action="Index" class="btn btn-outline-primary">
+                    View All Transactions
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

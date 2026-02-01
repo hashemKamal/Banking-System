@@ -1,0 +1,29 @@
+﻿@model BankProject.Models.ViewModels.TransferViewModel
+
+<h3>Transfer Money</h3>
+
+<form asp-action="Transfer" method="post">
+    <div class="mb-3">
+        <label asp-for="ToAccountNumber" class="form-label"></label>
+        <input asp-for="ToAccountNumber" class="form-control" />
+        <span asp-validation-for="ToAccountNumber" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Amount" class="form-label"></label>
+        <input asp-for="Amount" class="form-control" />
+        <span asp-validation-for="Amount" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Description" class="form-label"></label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Transfer</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
