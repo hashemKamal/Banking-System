@@ -148,3 +148,4 @@ C:\Users\hashe\source\BankProject\obj\Debug\net8.0\refint\BankProject.dll
 C:\Users\hashe\source\BankProject\obj\Debug\net8.0\BankProject.pdb
 C:\Users\hashe\source\BankProject\obj\Debug\net8.0\BankProject.genruntimeconfig.cache
 C:\Users\hashe\source\BankProject\obj\Debug\net8.0\ref\BankProject.dll
+C:\Users\hashe\source\BankProject\obj\Debug\net8.0\BankProject.sourcelink.json

@@ -1,37 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\hashe\\source\\BankProject\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{7A84408B-88AC-1182-2FD2-77FEE186D0CC}|BankProject.csproj|c:\\users\\hashe\\source\\bankproject\\views\\account\\logout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7A84408B-88AC-1182-2FD2-77FEE186D0CC}|BankProject.csproj|solutionrelative:views\\account\\logout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Logout.cshtml",
-              "DocumentMoniker": "C:\\Users\\hashe\\source\\BankProject\\Views\\Account\\Logout.cshtml",
-              "RelativeDocumentMoniker": "Views\\Account\\Logout.cshtml",
-              "ToolTip": "C:\\Users\\hashe\\source\\BankProject\\Views\\Account\\Logout.cshtml",
-              "RelativeToolTip": "Views\\Account\\Logout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-02-01T19:08:16.726Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }
